@@ -1,0 +1,15 @@
+version: '3'
+services:
+  node_app:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+      - MONGO_URL=mongodb+srv://alvan:Z3ypjSEHvsQAxFGx@cluster0.fzgb1.mongodb.net/products_db?retryWrites=true&w=majority&appName=Cluster0
+
+  redis:
+    image: redis
